@@ -27,3 +27,16 @@
   附上修改autocrlf的命令，以改为true为例：
   $ git config --global core.autocrlf true   
   #true的位置放你想使autocrlf成为的结果，true，false或者input
+4、git log命令显示从最近到最远的提交日志，
+   首先，Git必须知道当前版本是哪个版本，在Git中，用HEAD表示当前版本，
+   也就是最新的提交1094adb...（注意我的提交ID和你的肯定不一样），
+   上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，
+   所以写成HEAD~100。
+    现在，我们要把当前版本append GPL回退到上一个版本add distributed，就可以使用git reset命令：
+       $ git reset --hard HEAD^  //命令 git reset --hard head~*/指定版本号（*代表上多少个版本）
+       HEAD is now at e475afc add distributed
+	HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，
+	  使用命令git reset --hard commit_id。
+    穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。
+    要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
+	    
