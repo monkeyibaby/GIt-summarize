@@ -1,7 +1,9 @@
 1、git init 初始化版本库
 2、添加文件到Git仓库，分两步：
   使用命令git add <file>，注意，可反复多次使用，添加多个文件；
+  该操作是将修改过的文件提交到暂存区，
   使用命令git commit -m <message>，完成。message为提交说明。
+  该操作是将在暂存区的文件提交到版本库；
 3、要随时掌握工作区的状态，使用git status命令。
   如果git status告诉你有文件被修改过，用git diff可以查看修改内容。
   注解：Git warning：LF will be replaced by CRLF in readme.txt的原因与解决方案：
@@ -39,4 +41,15 @@
 	  使用命令git reset --hard commit_id。
     穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。
     要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
-	    
+5、命令git checkout -- readme.txt意思就是，把readme.txt文件在工作区的修改全部撤销，
+   这里有两种情况：
+   （1）是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
+   （2）一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
+   总之，就是让这个文件回到最近一次git commit或git add时的状态。
+6、命令git reset HEAD <file>可以把暂存区的修改撤销掉（unstage），重新放回工作区   
+7、将本地仓库推送到远程仓库：$ git remote add origin git@github.com:monkeyibaby/IFE2018.git
+    $ git remote add origin git@github.com:（用户名）/仓库名.git
+	$ git push -u origin master
+	将远程仓库克隆到本地仓库：
+	$ git clone git@github.com:（用户名）/仓库名.git
+
