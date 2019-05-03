@@ -41,7 +41,7 @@
 	  使用命令git reset --hard commit_id。
     穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。
     要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
-5、命令git checkout -- readme.txt意思就是，把readme.txt文件在工作区的修改全部撤销，
+##5、命令git checkout -- readme.txt意思就是，把readme.txt文件在工作区的修改全部撤销，
    这里有两种情况：
    （1）是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
    （2）一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
@@ -50,6 +50,7 @@
 7、将本地仓库推送到远程仓库：$ git remote add origin git@github.com:monkeyibaby/IFE2018.git
     $ git remote add origin git@github.com:（用户名）/仓库名.git
 	$ git push -u origin master
+	关联成功后使用git push origin master
 	将远程仓库克隆到本地仓库：
 	$ git clone git@github.com:（用户名）/仓库名.git
 
